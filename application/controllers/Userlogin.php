@@ -22,14 +22,10 @@ class Userlogin extends CI_Controller {
 	{
  $this->load->view('user_login');
 	}
-	public function createuser(){
-$this->load->model('usermodel');
-$this->usermodel->insertuser();
-$data = array(
-'name' => $this->input->post('name'),
-'email' => $this->input->post('email'),
-'password' => $this->input->post('password')
-);
-$this->load->view('user_login',$data);
+
+public function createuser(){ 
+       $this->load->model('User');
+        $this->User->UserInsert();
+        $this->load->view('user_login');
 }
 }
